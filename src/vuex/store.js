@@ -59,9 +59,19 @@ export default new Vuex.Store({
 			}
 		},
 
+		showLogofModal(context, payload) {
+			const modal = document.getElementById('logoutModal');
+
+			modal.classList.add('show');
+
+			modal.setAttribute("style", "display: block; padding-right: 15px");
+			modal.setAttribute("ria-hidden", "false");
+			modal.setAttribute("ria-modal", "true");
+		},
+
 		logof(context, payload) {
 			context.commit("CHANGE_AUTH", false);
-			router.push('/Home');
+			router.push('/Login');
 		}
 	}
 });

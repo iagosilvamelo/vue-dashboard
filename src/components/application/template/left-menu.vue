@@ -48,9 +48,9 @@
     <hr class="sidebar-divider">
 
     <li class="nav-item">
-      <a @click="logof" href="#" class="nav-link">
+      <a @click.self.prevent="logof" class="nav-link">
         <font-awesome-icon icon="sign-out-alt" size="xs" />
-        <span>Sair</span>
+        <span @click.self.prevent="logof">Sair</span>
       </a>
     </li>
 
@@ -61,9 +61,7 @@
   export default {
     name: "left-menu",
 
-    methods: {
-      logof() { this.$store.dispatch("logof", true) }
-    }
+    methods: { logof() { this.$store.dispatch("showLogofModal", true) } }
   };
 </script>
 

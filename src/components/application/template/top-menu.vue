@@ -16,15 +16,7 @@
       <li class="nav-item no-arrow">
         <span class="nav-link" id="userDropdown">
           <span class="mr-2 d-none d-lg-inline small">
-            <router-link to="Home">Home</router-link>
-          </span>
-        </span>
-      </li>
-
-      <li class="nav-item no-arrow">
-        <span class="nav-link" id="userDropdown">
-          <span class="mr-2 d-none d-lg-inline small">
-            <router-link to="Eventos">Eventos</router-link>
+            <a @click.self.prevent="logof">Sair</a>
           </span>
         </span>
       </li>
@@ -46,15 +38,19 @@
 </template>
 
 <script>
-export default {
-  name: 'top-menu',
+  import logofModal from "@/components/application/modal/logout.vue";
 
-  computed: {
-    logedUser() {
-      return this.$store.state.user
-    }
-  }
-};
+  export default {
+    name: 'top-menu',
+
+    computed: {
+      logedUser() {
+        return this.$store.state.user
+      }
+    },
+
+    methods: { logof() { this.$store.dispatch("showLogofModal", true) } }
+  };
 </script>
 
 <style>

@@ -1,10 +1,8 @@
-import Site  from "@/views/site/index.vue";
 import App   from "@/views/application/index.vue";
 import Login from "@/views/application/Login.vue";
 import Store from "@/vuex/store.js";
 
 import app_routes  from './application.js'
-import site_routes from './site.js'
 
 export default [
 	// Toda rota não registrada, redireciona para Index
@@ -15,19 +13,12 @@ export default [
 
 	{
 		path: "/",
-		redirect: "/Home"
+		redirect: "/App"
 	},
 
 	{
 		path: "/Login",
 		component: Login,
-	},
-
-	// Site
-	{
-		path: "/",
-		component: Site,
-		children: site_routes
 	},
 
 	// App
